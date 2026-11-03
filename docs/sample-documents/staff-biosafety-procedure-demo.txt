@@ -1,0 +1,23 @@
+STAFF-ONLY PROCEDURE — SAMPLE HANDLING AND BIOSAFETY (FICTITIOUS DEMO DOCUMENT, REF DEMO-BIO-07)
+LabAssist demonstration laboratory. This document is fictitious and must only be used to test the application.
+
+1. Scope
+This procedure applies to all technicians handling primary blood and urine samples in the pre-analytical area.
+
+2. Personal protective equipment
+Wear nitrile gloves, a closed lab coat and safety glasses for every manipulation of open tubes. Change gloves between each batch and whenever they are visibly contaminated.
+
+3. Sample reception
+Check patient identity on the tube label against the request form using two identifiers (full name and date of birth). Any discrepancy must be recorded as a non-conformity and the sample must not be processed until the identity is confirmed by the collecting site.
+
+4. Centrifugation
+Balance the centrifuge rotor before every run. Do not open the centrifuge lid until the rotor has completely stopped. If a tube breaks inside the centrifuge, wait 30 minutes before opening to let aerosols settle, then decontaminate with 0.5% sodium hypochlorite.
+
+5. Spills
+For a spill of biological fluid, cover with absorbent paper, pour 0.5% sodium hypochlorite from the outside towards the centre, wait 10 minutes, then collect the waste in the yellow biohazard container.
+
+6. Waste
+Sharps go into rigid yellow containers, filled to a maximum of three quarters. Biological waste is collected twice a day by the logistics team.
+
+7. Storage
+After analysis, primary samples are kept at 2-8 °C for 7 days in the archive refrigerator (room B12) before disposal.

@@ -1,8 +1,11 @@
-# LabAssist AI
+<div align="center">
 
-**Assistant intelligent pour laboratoire d'analyses médicales** — chatbot documentaire, base de connaissances
-validée, mémoire utilisateur maîtrisée et module d'analyse de la qualité des données (LabVision AI), dans une seule
-application web.
+# 🧪 LabAssist AI
+
+### Assistant intelligent pour laboratoire d'analyses médicales
+
+Chatbot documentaire **RAG · CAG · MAG**, base de connaissances validée, mémoire utilisateur maîtrisée
+et module d'analyse de la qualité des données **LabVision AI** — dans une seule application web, 100 % locale.
 
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?logo=fastapi&logoColor=white)
@@ -10,12 +13,61 @@ application web.
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-4169E1?logo=postgresql&logoColor=white)
 ![Ollama](https://img.shields.io/badge/LLM-Ollama%20(local)-000000)
+![FAISS](https://img.shields.io/badge/Vector%20DB-FAISS-0467DF)
 ![Docker](https://img.shields.io/badge/Docker-non%20requis-lightgrey)
+
+[Fonctionnalités](#2-fonctionnalités) ·
+[Démarrage rapide](#démarrage-rapide) ·
+[Architecture](#3-architecture) ·
+[Installation](#6-installation) ·
+[API](#11-référence-de-lapi) ·
+[Sécurité](#12-sécurité-et-confidentialité)
+
+</div>
 
 > [!WARNING]
 > **Version de développement.** Utilisez uniquement des données fictives : ne chargez jamais de dossiers patients
 > réels. LabAssist AI ne pose aucun diagnostic ; le contenu médical doit provenir de sources validées par le
 > laboratoire, et toute alerte produite par LabVision AI doit être examinée par une personne qualifiée.
+
+---
+
+## Points clés
+
+| | |
+|---|---|
+| 🤖 **IA 100 % locale** | Modèle de langage et embeddings exécutés via Ollama : aucune donnée n'est envoyée à un service externe |
+| 📚 **Trois mécanismes de connaissance** | RAG (documents), CAG (connaissances approuvées) et MAG (mémoire utilisateur), coordonnés par un orchestrateur |
+| 🛡️ **Garde-fous médicaux** | Refus de diagnostic, sources citées, signalement des contradictions et des contenus périmés |
+| 📊 **LabVision AI** | Contrôle qualité et détection d'anomalies (IQR, Z-score, Isolation Forest, séries temporelles) sur CSV/Excel |
+| 👥 **Multi-rôles** | Patient, personnel de laboratoire et administrateur, avec isolation stricte des données |
+| 🌍 **Multilingue** | Français, anglais et arabe (interface RTL) |
+
+## Démarrage rapide
+
+> Prérequis : Python 3.11, Node.js 20+, PostgreSQL 14+ et Ollama installés. Le détail pas à pas se trouve en
+> [section 6](#6-installation).
+
+```powershell
+git clone https://github.com/CHAWKI444/labassist-ai.git
+cd labassist-ai
+Copy-Item .env.example .env          # puis renseigner SECRET_KEY, DATABASE_URL, ADMIN_* et DEMO_USER_PASSWORD
+
+ollama pull mistral; ollama pull bge-m3
+
+# Backend (terminal 1)
+cd backend
+py -3.11 -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements-dev.txt
+alembic upgrade head
+python -m app.scripts.seed --demo --sample-docs
+uvicorn app.main:app --reload --port 8000
+
+# Frontend (terminal 2)
+cd frontend
+npm install
+npm run dev                          # http://localhost:5173
+```
 
 ---
 
@@ -714,3 +766,18 @@ passe robuste, `EMAIL_BACKEND=smtp` et placez l'API derrière un reverse proxy H
   modèle de données et matrice des droits.
 - [.env.example](.env.example) — liste commentée de toutes les variables de configuration.
 - Documentation interactive de l'API : <http://127.0.0.1:8000/docs> (backend démarré).
+
+---
+
+## Auteur
+
+Développé par **[CHAWKI444](https://github.com/CHAWKI444)**.
+
+Les suggestions et signalements de bugs sont les bienvenus via les
+[issues](https://github.com/CHAWKI444/labassist-ai/issues) du dépôt.
+
+<div align="center">
+
+<sub>LabAssist AI — projet de démonstration. Ne traite aucune donnée patient réelle et ne remplace pas l'avis d'un professionnel de santé.</sub>
+
+</div>
